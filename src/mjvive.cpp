@@ -622,6 +622,7 @@ void v_update(void)
                 else if( button==vBUTTON_SIDE )
                 {
                     // user can trigger custom action here
+
                 }
 
                 break;
@@ -932,21 +933,21 @@ int main(int argc, const char** argv)
         }
 
         // apply controller perturbations
-        // mju_zero(d->xfrc_applied, 6*m->nbody);
-        // for( int n=0; n<2; n++ )
-        //     if( ctl[n].valid && ctl[n].tool==vTOOL_PULL &&
-        //         ctl[n].body>0 && ctl[n].hold[vBUTTON_TRIGGER] )
-        //     {
-        //         // perpare mjvPerturb object
-        //         pert.active = mjPERT_TRANSLATE | mjPERT_ROTATE;
-        //         pert.select = ctl[n].body;
-        //         mju_copy3(pert.refpos, ctl[n].targetpos);
-        //         mju_copy(pert.refquat, ctl[n].targetquat, 4);
-        //
-        //         // apply
-        //         mjv_applyPerturbPose(m, d, &pert, 0);
-        //         mjv_applyPerturbForce(m, d, &pert);
-        //     }
+        mju_zero(d->xfrc_applied, 6*m->nbody);
+        for( int n=0; n<2; n++ )
+            if( ctl[n].valid && ctl[n].tool==vTOOL_PULL &&
+                ctl[n].body>0 && ctl[n].hold[vBUTTON_TRIGGER] )
+            {
+                // perpare mjvPerturb object
+                pert.active = mjPERT_TRANSLATE | mjPERT_ROTATE;
+                pert.select = ctl[n].body;
+                mju_copy3(pert.refpos, ctl[n].targetpos);
+                mju_copy(pert.refquat, ctl[n].targetquat, 4);
+        
+                // apply
+                mjv_applyPerturbPose(m, d, &pert, 0);
+                mjv_applyPerturbForce(m, d, &pert);
+            }
 
         // simulate
         mj_step(m, d);
