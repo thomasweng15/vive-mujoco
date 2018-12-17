@@ -9,3 +9,4 @@
     * Open VS2015 x64 Native Tools Command Prompt
     * Navigate to `src/` directory in repo
     * Run `nmake -f makefile`
+5. Run the code after making by navigating to the `bin/` folder in `mjpro150/` and running `mjvive.exe ..\..\vive-mujoco\model\humanoid100.xml`
