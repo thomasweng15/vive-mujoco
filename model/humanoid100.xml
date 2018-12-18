@@ -141,13 +141,10 @@
             </body>
         </body>
 
-        <!-- Floating body connected to controller -->
-        <body name="myfloatingbody" pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
+        <body pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
             <freejoint/>
             <geom class="object1"/>
         </body>
-
-        
         <!-- <body pos="-2 -2 2" quat="-0.5547 -0.5547 0.5547 0.27735">
             <freejoint/>
             <geom class="object1"/>
@@ -314,6 +311,12 @@
             <geom class="object2"/>
         </body> -->
 
+        <!-- Mocap body -->
+        <body name="mocapcube" pos="0 -2 2" quat="0 -0.816497 0.408248 0.408248">
+            <freejoint/>
+            <geom class="object3"/>
+        </body>
+        
         <body pos="0 -2 1" quat="0 -0.816497 0.408248 0.408248">
             <freejoint/>
             <geom class="object3"/>
