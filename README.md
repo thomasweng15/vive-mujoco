@@ -10,3 +10,8 @@
     * Navigate to `src/` directory in repo
     * Run `nmake -f makefile`
 5. Run the code after making by navigating to the `bin/` folder in `mjpro150/` and running `mjvive.exe ..\..\vive-mujoco\model\humanoid100.xml`
+
+## Notes
+
+* `mjvive.py` currently doesn't work
+* `minivive.cpp` is `mjvive.cpp` without controllers
