@@ -402,6 +402,27 @@ void v_initPre(void)
 // init vr: after MuJoCo init
 void v_initPost(void)
 {
+    // (tweng) Attach floating body to controller
+    int bodyid = mj_name2id(m, mjOBJ_BODY, "myfloatingbody");
+    int qposadr = -1, qveladr = -1;
+
+    // make sure we have a floating body: it has a single free joint
+    if( bodyid>=0 && m->body_jntnum[bodyid]==1 && 
+        m->jnt_type[m->body_jntadr[bodyid]]==mjJNT_FREE )
+    {
+        // extract the addresses from the joint specification
+        qposadr = m->jnt_qposadr[m->body_jntadr[bodyid]];
+        // qveladr = m->jnt_dofadr[m->body_jntadr[bodyid]];
+        
+        d->qpos[qposadr] = ctl[0].pos[0];
+        d->qpos[qposadr+1] = ctl[0].pos[1];
+        d->qpos[qposadr+2] = ctl[0].pos[2];
+        d->qpos[qposadr+3] = ctl[0].quat[0];
+        d->qpos[qposadr+4] = ctl[0].quat[1];
+        d->qpos[qposadr+5] = ctl[0].quat[2];
+        d->qpos[qposadr+6] = ctl[0].quat[3];
+    }
+    
     // set MuJoCo OpenGL frustum to match Vive
     for( int n=0; n<2; n++ )
     {
