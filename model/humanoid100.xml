@@ -141,12 +141,14 @@
             </body>
         </body>
 
-
-        <body pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
+        <!-- Floating body connected to controller -->
+        <body name="myfloatingbody" pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
             <freejoint/>
             <geom class="object1"/>
         </body>
-        <body pos="-2 -2 2" quat="-0.5547 -0.5547 0.5547 0.27735">
+
+        
+        <!-- <body pos="-2 -2 2" quat="-0.5547 -0.5547 0.5547 0.27735">
             <freejoint/>
             <geom class="object1"/>
         </body>
@@ -225,13 +227,13 @@
         <body pos="-2 2 4" quat="-0.471405 0.471405 0.707107 0.235702">
             <freejoint/>
             <geom class="object1"/>
-        </body>
+        </body> -->
 
         <body pos="-1 -2 1" quat="-0.377964 -0.755929 0.377964 0.377964">
             <freejoint/>
             <geom class="object2"/>
         </body>
-        <body pos="-1 -2 2" quat="-0.316228 -0.632456 0.632456 0.316228">
+        <!-- <body pos="-1 -2 2" quat="-0.316228 -0.632456 0.632456 0.316228">
             <freejoint/>
             <geom class="object2"/>
         </body>
@@ -310,13 +312,13 @@
         <body pos="-1 2 4" quat="-0.258199 0.516398 0.774597 0.258199">
             <freejoint/>
             <geom class="object2"/>
-        </body>
+        </body> -->
 
         <body pos="0 -2 1" quat="0 -0.816497 0.408248 0.408248">
             <freejoint/>
             <geom class="object3"/>
         </body>
-        <body pos="0 -2 2" quat="0 -0.666667 0.666667 0.333333">
+        <!-- <body pos="0 -2 2" quat="0 -0.666667 0.666667 0.333333">
             <freejoint/>
             <geom class="object3"/>
         </body>
@@ -395,13 +397,13 @@
         <body pos="0 2 4" quat="0 0.534522 0.801784 0.267261">
             <freejoint/>
             <geom class="object3"/>
-        </body>
+        </body> -->
 
         <body pos="1 -2 1" quat="0.377964 -0.755929 0.377964 0.377964">
             <freejoint/>
             <geom class="object4"/>
         </body>
-        <body pos="1 -2 2" quat="0.316228 -0.632456 0.632456 0.316228">
+        <!-- <body pos="1 -2 2" quat="0.316228 -0.632456 0.632456 0.316228">
             <freejoint/>
             <geom class="object4"/>
         </body>
@@ -480,13 +482,13 @@
         <body pos="1 2 4" quat="0.258199 0.516398 0.774597 0.258199">
             <freejoint/>
             <geom class="object4"/>
-        </body>
+        </body> -->
 
         <body pos="2 -2 1" quat="0.632456 -0.632456 0.316228 0.316228">
             <freejoint/>
             <geom class="object5"/>
         </body>
-        <body pos="2 -2 2" quat="0.5547 -0.5547 0.5547 0.27735">
+        <!-- <body pos="2 -2 2" quat="0.5547 -0.5547 0.5547 0.27735">
             <freejoint/>
             <geom class="object5"/>
         </body>
@@ -565,7 +567,7 @@
         <body pos="2 2 4" quat="0.471405 0.471405 0.707107 0.235702">
             <freejoint/>
             <geom class="object5"/>
-        </body>
+        </body> -->
         
     </worldbody>
 </mujoco>
