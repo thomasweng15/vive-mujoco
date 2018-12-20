@@ -959,6 +959,19 @@ int main(int argc, const char** argv)
         d->mocap_quat[2] = ctl[0].quat[2];
         d->mocap_quat[3] = ctl[0].quat[3];
 
+        // (tweng) Control gripper if fetch
+		int rGripper = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_finger_joint");
+		int lGripper = mj_name2id(m, mjOBJ_ACTUATOR, "l_gripper_finger_joint");
+		// engage only if both are found
+		if((rGripper!=-1)&&(lGripper!=-1)) 
+		{
+			const double scale = 1.0;
+			d->ctrl[rGripper] = m->actuator_ctrlrange[2 * rGripper] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * rGripper + 1] - m->actuator_ctrlrange[2 * rGripper]);
+			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
+		}
+
         // simulate
         mj_step(m, d);
 
