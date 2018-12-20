@@ -1,6 +1,8 @@
 <mujoco model="Humanoid and 100 objects">
     <compiler angle="degree"/>
 
+    <!-- <include file="robot/fetch/gripperasset.xml"/> -->
+
     <option timestep="0.003" iterations="50" solver="Newton" jacobian="sparse" cone="elliptic" tolerance="1e-10"/>
 
     <size njmax="5000" nconmax="2000" nstack="5000000"/>
@@ -58,8 +60,14 @@
     </visual>
 
     <statistic extent="4"/>
+<!-- 
+    <equality>
+        <weld body1="mocapcube" body2="test" solref="0.01 1" solimp=".02 .1 0.050"/>
+	</equality> -->
 
     <worldbody>
+        <!-- <include file="robot/fetch/gripperchain.xml"/> -->
+
         <light directional="true" diffuse=".8 .8 .8" pos="0 0 10" dir="0 0 -10"/>
 
         <geom pos="0 0 0" type="plane" size="3 3 .5" rgba=".7 .7 .7 1" material="MatPlane"/>
@@ -72,7 +80,7 @@
         <geom class="borderpost" pos="-3 3 0"/>
         <geom class="borderpost" pos="3 -3 0"/>
         <geom class="borderpost" pos="-3 -3 0"/>
-
+<!-- 
         <body name='torso' pos='0 0 1.4' childclass="humanoid">
             <freejoint name="root"/>
             <geom name='torso1' type='capsule' fromto='0 -.07 0 0 .07 0'  size='0.07'/>
@@ -139,6 +147,12 @@
                     <geom name='left_hand' type='sphere' pos='.18 -.18 .18'  size='0.04'/>
                 </body>
             </body>
+        </body> -->
+
+        <!-- Mocap body -->
+        <body name="mocapcube" mocap="true" pos="0 -2 2" quat="0 -0.816497 0.408248 0.408248">
+            <!-- <geom type="mesh" mesh="gripper_link" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/> -->
+            <geom class="object3"/>
         </body>
 
         <body pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
@@ -310,12 +324,6 @@
             <freejoint/>
             <geom class="object2"/>
         </body> -->
-
-        <!-- Mocap body -->
-        <body name="mocapcube" pos="0 -2 2" quat="0 -0.816497 0.408248 0.408248">
-            <freejoint/>
-            <geom class="object3"/>
-        </body>
         
         <body pos="0 -2 1" quat="0 -0.816497 0.408248 0.408248">
             <freejoint/>
