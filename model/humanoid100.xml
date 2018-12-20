@@ -1,7 +1,7 @@
 <mujoco model="Humanoid and 100 objects">
     <compiler angle="degree"/>
 
-    <!-- <include file="robot/fetch/gripperasset.xml"/> -->
+    <include file="robot/fetch/gripperasset.xml"/>
 
     <option timestep="0.003" iterations="50" solver="Newton" jacobian="sparse" cone="elliptic" tolerance="1e-10"/>
 
@@ -46,7 +46,7 @@
 
     <asset>
         <texture type="skybox" builtin="gradient" width="128" height="128" rgb1=".4 .6 .8" rgb2="0 0 0"/>  
-        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="128" height="128" 
+        <!-- <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="128" height="128"  -->
             rgb1="0.6 0.6 0.6" rgb2="0.6 0.6 0.6" markrgb="1 1 1"/>  
         <texture name="texplane" type="2d" builtin="checker" rgb1=".4 .4 .4" rgb2=".6 .6 .6" 
             width="512" height="512"/>  
@@ -60,14 +60,12 @@
     </visual>
 
     <statistic extent="4"/>
-<!-- 
+
     <equality>
-        <weld body1="mocapcube" body2="test" solref="0.01 1" solimp=".02 .1 0.050"/>
-	</equality> -->
+        <weld body1="mocapcube" body2="gripper_link" solref="0.01 1" solimp=".02 .1 0.050"/>
+	</equality>
 
     <worldbody>
-        <!-- <include file="robot/fetch/gripperchain.xml"/> -->
-
         <light directional="true" diffuse=".8 .8 .8" pos="0 0 10" dir="0 0 -10"/>
 
         <geom pos="0 0 0" type="plane" size="3 3 .5" rgba=".7 .7 .7 1" material="MatPlane"/>
@@ -151,9 +149,11 @@
 
         <!-- Mocap body -->
         <body name="mocapcube" mocap="true" pos="0 -2 2" quat="0 -0.816497 0.408248 0.408248">
-            <!-- <geom type="mesh" mesh="gripper_link" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/> -->
-            <geom class="object3"/>
+            <geom type="mesh" mesh="gripper_link" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/>
+			<geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
         </body>
+
+        <include file="robot/fetch/gripperchain.xml"/>
 
         <body pos="-2 -2 1" quat="-0.632456 -0.632456 0.316228 0.316228">
             <freejoint/>
