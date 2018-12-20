@@ -37,7 +37,7 @@
         <position kp="1e4" ctrllimited="true" ctrlrange="-2.251 2.251" joint="robot:elbow_flex_joint" name="elbow_flex_joint" />
         <position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14" joint="robot:forearm_roll_joint" name="forearm_roll_joint" />
         <position kp="1e4" ctrllimited="true" ctrlrange="-2.16 2.16" joint="robot:wrist_flex_joint" name="wrist_flex_joint" />
-        <position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14" joint="robot:wrist_roll_joint" name="wrist_roll_joint" />-->
+        <position kp="1e4" ctrllimited="true" ctrlrange="-3.14 3.14" joint="robot:wrist_roll_joint" name="wrist_roll_joint" /> -->
 		<position kp="1e4" ctrllimited="true" ctrlrange="0 .05" joint="robot:r_gripper_finger_joint" name="r_gripper_finger_joint" />
         <position kp="1e4" ctrllimited="true" ctrlrange="0 .05" joint="robot:l_gripper_finger_joint" name="l_gripper_finger_joint" />
     </actuator>
