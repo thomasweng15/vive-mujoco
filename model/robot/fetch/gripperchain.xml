@@ -23,12 +23,11 @@
 			<geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
         </body>-->
 		
-    <body name="wrist_roll_link" pos="0.1385 0 0">
+    <body childclass="fetch" name="wrist_roll_link" pos="0.1385 0 0">
         <inertial pos="0.0095 0.0004 -0.0002" mass="0.1354" diaginertia="0.0001 0.0001 0.0001" />
-        <!-- <joint type="free" name="robot:wrist_roll_joint" damping="0" armature="0" limited="false"/> -->
-        <joint limited='true' name="robot:wrist_roll_joint" axis="1 0 0" range='-3.14 3.14'/>
+        <joint type="free" name="robot:wrist_roll_joint" damping="0" armature="0" limited="false"/>
         <geom mesh="wrist_roll_link" />
-        <body childclass="fetch" name="gripper_link" pos="0.16645 0 0">
+        <body name="gripper_link" pos="0.16645 0 0">
             <inertial pos="-0.09 -0.0001 -0.0017" quat="0 0.707107 0 0.707107" mass="1.5175" diaginertia="0.0024 0.0019 0.0013" />
             <!-- <inertial pos="-0.09 -0.0001 -0.0017" quat="0 0.707107 0 0.707107" mass="0.1" diaginertia="0.001 0.001 0.001" /> -->
             <geom mesh="gripper_link" />

@@ -62,7 +62,7 @@
     <statistic extent="4"/>
 
     <equality>
-        <weld body1="mocapcube" body2="gripper_link" solref="0.01 1" solimp=".02 .1 0.050"/>
+        <weld body1="mocapcube" body2="gripper_link" solref="0.01 1" solimp=".9 .9 0.01"/>
 	</equality>
 
     <worldbody>
@@ -148,9 +148,9 @@
         </body> -->
 
         <!-- Mocap body -->
-        <body name="mocapcube" mocap="true" pos="0 -2 2" quat="0 -0.816497 0.408248 0.408248">
+        <body name="mocapcube" mocap="true" pos="0.1385 0 0" euler="1.57 -1.57 0">
             <geom type="mesh" mesh="gripper_link" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/>
-			<geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
+            <geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
         </body>
 
         <include file="robot/fetch/gripperchain.xml"/>
