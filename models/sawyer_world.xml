@@ -3,7 +3,7 @@
   <option cone="elliptic" impratio="20" />
   <size nconmax="5000" njmax="5000" />
 
-  <include file="sawyer/sawyer_assets.xml"/>
+  <include file="robots/sawyer/assets.xml"/>
 
   <actuator>
   <velocity ctrllimited="true" ctrlrange="-1.74 1.74" joint="right_j0" kv="8.0" name="vel_right_j0" />
