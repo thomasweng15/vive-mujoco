@@ -962,12 +962,25 @@ int main(int argc, const char** argv)
         // (tweng) Control gripper if fetch
 		int rGripper = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_finger_joint");
 		int lGripper = mj_name2id(m, mjOBJ_ACTUATOR, "l_gripper_finger_joint");
-		// engage only if both are found
 		if((rGripper!=-1)&&(lGripper!=-1)) 
 		{
 			const double scale = 1.0;
 			d->ctrl[rGripper] = m->actuator_ctrlrange[2 * rGripper] + scale*(1.0 - ctl[0].triggerpos)*
 				(m->actuator_ctrlrange[2 * rGripper + 1] - m->actuator_ctrlrange[2 * rGripper]);
+			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
+		}
+
+        // (tweng) Control gripper if sawyer
+		rGripper = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_r_finger_joint");
+		lGripper = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_l_finger_joint");
+		if((rGripper!=-1)&&(lGripper!=-1)) 
+		{
+			const double scale = 1.0;
+            // std::cout << m->actuator_ctrlrange[2 * rGripper] << " " << scale*(1.0 - ctl[0].triggerpos)*
+				// (m->actuator_ctrlrange[2 * rGripper + 1] - m->actuator_ctrlrange[2 * rGripper]) << std::endl;
+			d->ctrl[rGripper] = m->actuator_ctrlrange[2 * rGripper+1] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * rGripper] - m->actuator_ctrlrange[2 * rGripper+1]);
 			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
 				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
 		}
