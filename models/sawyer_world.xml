@@ -24,9 +24,8 @@
 
   <worldbody>
     <!--Mocap body for tele-op-->
-    <body name="mocap0" mocap="true" pos="0.300 1.234 0.786" euler="1.57 0 0">
-      <geom type="mesh" mesh="electric_gripper_base" group="2" euler="1.57 0 -1.57" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15" pos="0 0 -0.16645"/>
-      <geom type="mesh" mesh="l6" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
+    <body name="mocap0" mocap="true" pos="0.98946 0.160249 1.22993" euler="0.1745293 4.7100243 0">
+      <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="3.14 3.14 0"/>
     </body>
 
     <geom condim="3" material="floorplane" name="floor" pos="0.5 -0.3 0.0" size="3 3 .125" type="plane" />
