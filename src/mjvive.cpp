@@ -977,8 +977,6 @@ int main(int argc, const char** argv)
 		if((rGripper!=-1)&&(lGripper!=-1)) 
 		{
 			const double scale = 1.0;
-            // std::cout << m->actuator_ctrlrange[2 * rGripper] << " " << scale*(1.0 - ctl[0].triggerpos)*
-				// (m->actuator_ctrlrange[2 * rGripper + 1] - m->actuator_ctrlrange[2 * rGripper]) << std::endl;
 			d->ctrl[rGripper] = m->actuator_ctrlrange[2 * rGripper+1] + scale*(1.0 - ctl[0].triggerpos)*
 				(m->actuator_ctrlrange[2 * rGripper] - m->actuator_ctrlrange[2 * rGripper+1]);
 			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
