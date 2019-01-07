@@ -954,10 +954,18 @@ int main(int argc, const char** argv)
         d->mocap_pos[0] = ctl[0].pos[0];
         d->mocap_pos[1] = ctl[0].pos[1];
         d->mocap_pos[2] = ctl[0].pos[2];
+        d->mocap_pos[3] = ctl[1].pos[0];
+        d->mocap_pos[4] = ctl[1].pos[1];
+        d->mocap_pos[5] = ctl[1].pos[2];
+
         d->mocap_quat[0] = ctl[0].quat[0];
         d->mocap_quat[1] = ctl[0].quat[1];
         d->mocap_quat[2] = ctl[0].quat[2];
         d->mocap_quat[3] = ctl[0].quat[3];
+        d->mocap_quat[4] = ctl[1].quat[0];
+        d->mocap_quat[5] = ctl[1].quat[1];
+        d->mocap_quat[6] = ctl[1].quat[2];
+        d->mocap_quat[7] = ctl[1].quat[3];
 
         // (tweng) Control gripper if fetch
 		int rGripper = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_finger_joint");
@@ -972,15 +980,26 @@ int main(int argc, const char** argv)
 		}
 
         // (tweng) Control gripper if sawyer
-		rGripper = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_r_finger_joint");
-		lGripper = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_l_finger_joint");
-		if((rGripper!=-1)&&(lGripper!=-1)) 
+		int rGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_r_finger_joint");
+		int rGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_l_finger_joint");
+		if((rGripperRJoint!=-1)&&(rGripperLJoint!=-1)) 
 		{
 			const double scale = 1.0;
-			d->ctrl[rGripper] = m->actuator_ctrlrange[2 * rGripper+1] + scale*(1.0 - ctl[0].triggerpos)*
-				(m->actuator_ctrlrange[2 * rGripper] - m->actuator_ctrlrange[2 * rGripper+1]);
-			d->ctrl[lGripper] = m->actuator_ctrlrange[2 * lGripper] + scale*(1.0 - ctl[0].triggerpos)*
-				(m->actuator_ctrlrange[2 * lGripper + 1] - m->actuator_ctrlrange[2 * lGripper]);
+			d->ctrl[rGripperRJoint] = m->actuator_ctrlrange[2 * rGripperRJoint+1] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * rGripperRJoint] - m->actuator_ctrlrange[2 * rGripperRJoint+1]);
+			d->ctrl[rGripperLJoint] = m->actuator_ctrlrange[2 * rGripperLJoint] + scale*(1.0 - ctl[0].triggerpos)*
+				(m->actuator_ctrlrange[2 * rGripperLJoint + 1] - m->actuator_ctrlrange[2 * rGripperLJoint]);
+		}
+
+		int lGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_l_gripper_r_finger_joint");
+		int lGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_l_gripper_l_finger_joint");
+		if((lGripperRJoint!=-1)&&(lGripperLJoint!=-1)) 
+		{
+			const double scale = 1.0;
+			d->ctrl[lGripperRJoint] = m->actuator_ctrlrange[2 * lGripperRJoint+1] + scale*(1.0 - ctl[1].triggerpos)*
+				(m->actuator_ctrlrange[2 * lGripperRJoint] - m->actuator_ctrlrange[2 * lGripperRJoint+1]);
+			d->ctrl[lGripperLJoint] = m->actuator_ctrlrange[2 * lGripperLJoint] + scale*(1.0 - ctl[1].triggerpos)*
+				(m->actuator_ctrlrange[2 * lGripperLJoint + 1] - m->actuator_ctrlrange[2 * lGripperLJoint]);
 		}
 
         // simulate
