@@ -1,15 +1,19 @@
 <mujoco>
-    <compiler angle="radian"/>
+    <compiler angle="radian" meshdir="meshes/" />
 
     <option timestep="0.002">
         <flag warmstart="enable"/>
     </option>
 
-
+    <include file="robots/sawyer/gripperassets.xml"/>
     <include file="scene.xml"/>
     <!-- <include file="robots/sawyer.xml"/> -->
 
     <worldbody>
+        <body name="mocap0" mocap="true" pos="0 -0.11 0.5" euler="0 0 0">
+            <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+        </body>
+
         <body name="pushBlock" pos="-0.15 0 0.72">
             <!--<freejoint name="push_block_slide"/>-->
             <joint axis="1 0 0" damping="0.001" name="push_block_slide0" pos="0 0 0" type="slide"/>
@@ -34,8 +38,10 @@
             </composite>
         </body>
 
+        <include file="robots/sawyer/gripperchain.xml" />
     </worldbody>
     <equality>
+        <weld body1="mocap0" body2="right_hand" solref="0.01 1" solimp=".9 .9 0.01"/>
         <!-- <weld body1="mocap_body" body2="arm_gripper_base" relpose="0 0 0 1 0 0 0" solimp="0.9 0.95 0.001" -->
               <!-- solref="0.02 1"></weld> -->
     </equality>
