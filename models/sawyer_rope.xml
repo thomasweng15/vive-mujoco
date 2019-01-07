@@ -6,6 +6,8 @@
     </option>
 
     <include file="robots/sawyer/gripperassets.xml"/>
+    <include file="robots/sawyer/gripperactuator_right.xml"/>
+    <include file="robots/sawyer/gripperactuator_left.xml"/>
     <include file="scene.xml"/>
     <!-- <include file="robots/sawyer.xml"/> -->
 

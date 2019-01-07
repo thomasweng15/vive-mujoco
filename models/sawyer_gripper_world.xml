@@ -4,6 +4,7 @@
   <size nconmax="5000" njmax="5000" />
 
   <include file="robots/sawyer/gripperassets.xml"/>
+  <include file="robots/sawyer/gripperactuator_right.xml"/>
 
   <asset>
     <mesh file="objects/milk.stl" name="milk_mesh" scale="0.9 0.9 0.9" />
@@ -19,13 +20,18 @@
   </asset>
 
   <equality>
-    <weld body1="mocap0" body2="right_hand" solref="0.01 1" solimp=".9 .9 0.01"/>
+    <weld body1="mocap0" body2="right_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
   </equality>
 
   <worldbody>
     <!--Mocap body for tele-op-->
     <body name="mocap0" mocap="true" pos="0 -0.11 0.5" euler="0 0 0">
       <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+    </body>
+
+    <!-- Dummy mocap body for second controller -->
+    <body name="mocap1" mocap="true" pos="1.0 -0.11 0.5" euler="0 0 0">
+      <!-- <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/> -->
     </body>
 
     <geom condim="3" material="floorplane" name="floor" pos="0.5 -0.3 0.0" size="3 3 .125" type="plane" />

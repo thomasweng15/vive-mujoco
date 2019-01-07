@@ -40,6 +40,10 @@
       <geom type="mesh" mesh="wrist_roll_link" group="2" euler="0 1.57 0" contype="0" conaffinity="0" rgba=".5 .5 .5 0.15"/>
     </body>
 
+    <!-- Dummy mocap body for second controller -->
+    <body name="mocap1" mocap="true" pos="1.0 -0.11 0.5" euler="0 0 0">
+    </body>
+
     <include file="robots/fetch/chain.xml"/>
 
     <body name="Table" pos="0.3 1 0.5">
