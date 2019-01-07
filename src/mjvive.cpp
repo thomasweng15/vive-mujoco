@@ -193,6 +193,7 @@ enum
 {
     vTOOL_MOVE = 0,
     vTOOL_PULL,
+    vTOOL_NONE,
 
     vNTOOL
 };
@@ -201,7 +202,8 @@ enum
 // tool names
 const char* toolName[vNTOOL] = {
     "move and scale world",
-    "pull selected body"
+    "pull selected body",
+    "no tool"
 };
 
 
@@ -388,7 +390,7 @@ void v_initPre(void)
 
             // clear state
             ctl[n].valid = false;
-            ctl[n].tool = (n==0 ? vTOOL_MOVE : vTOOL_PULL);
+            ctl[n].tool = vTOOL_NONE; 
             ctl[n].body = 0;
             ctl[n].message[0] = 0;
             for( i=0; i<vNBUTTON; i++ )
@@ -603,7 +605,7 @@ void v_update(void)
                 }
 
                 // pad button: change selection and show message
-                else if( button==vBUTTON_PAD && ctl[n].tool!=vTOOL_MOVE )
+                else if( button==vBUTTON_PAD && ctl[n].tool!=vTOOL_MOVE && ctl[n].tool!=vTOOL_NONE)
                 {
                     if( ctl[n].padpos[1]>0 )
                         ctl[n].body = mjMAX(0, ctl[n].body-1);
@@ -656,7 +658,7 @@ void v_update(void)
         if( ctl[n].id>=0 )
         {
             // update target pose
-            if( ctl[n].hold[vBUTTON_TRIGGER] && ctl[n].tool!=vTOOL_MOVE )
+            if( ctl[n].hold[vBUTTON_TRIGGER] && ctl[n].tool!=vTOOL_MOVE && ctl[n].tool!=vTOOL_NONE)
                 mju_mulPose(ctl[n].targetpos, ctl[n].targetquat,
                     ctl[n].pos, ctl[n].quat, ctl[n].relpos, ctl[n].relquat);
             else
@@ -689,8 +691,12 @@ void v_update(void)
                     g->size[0] = g->size[1] = 0.01f / scn.scale;
                     g->size[2] = 0.08f / scn.scale;
                 }
-                else
+                else if (ctl[n].tool==vTOOL_PULL) 
+                {
                     g->type = mjGEOM_BOX;
+                }
+                else
+                    g->type = mjGEOM_SPHERE;
 
                 if( ctl[n].message[0] && glfwGetTime()-ctl[n].messagestart < ctl[n].messageduration)
                     strcpy(g->label, ctl[n].message);
