@@ -1,0 +1,13 @@
+<mujocoinclude>
+  <actuator>
+    <position ctrllimited="true" ctrlrange="-0.0115 0.020833" forcelimited="true" forcerange="-20 20" joint="r_gripper_r_finger_joint" kp="10000" name="gripper_r_gripper_r_finger_joint" />
+    <position ctrllimited="true" ctrlrange="-0.020833 0.0115" forcelimited="true" forcerange="-20 20" joint="r_gripper_l_finger_joint" kp="10000" name="gripper_r_gripper_l_finger_joint" />
+  </actuator>
+  
+  <asset>
+    <mesh file="sawyer/l6.stl" name="l6" />
+    <mesh file="sawyer/two_finger_gripper/electric_gripper_base.STL" name="electric_gripper_base" />
+    <mesh file="sawyer/two_finger_gripper/standard_narrow.STL" name="standard_narrow" />
+    <mesh file="sawyer/two_finger_gripper/half_round_tip.STL" name="half_round_tip" />
+  </asset>
+</mujocoinclude>
