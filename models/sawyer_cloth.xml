@@ -9,12 +9,9 @@
     -->
 
     <compiler angle="radian" meshdir="meshes/" />
-<!-- 
-    <include file="robots/sawyer/gripperassets.xml"/>
-    <include file="robots/sawyer/gripperactuator_right.xml"/>
-    <include file="robots/sawyer/gripperactuator_left.xml"/> -->
-    <include file="robots/sawyer/alt_robot_gripper_shared.xml"/>
-    <include file="scene.xml"/>
+    
+    <include file="robots/sawyer/floatinggripper_shared.xml"/>
+    <include file="scenes/scene.xml"/>
 
     <option timestep="0.002" solver="CG" tolerance="1e-6"/>
 
@@ -26,7 +23,7 @@
     </equality>
 
     <worldbody>
-        <include file="robots/sawyer/alt_robot_gripper_right.xml"/>
+        <include file="robots/sawyer/floatinggripper_right.xml"/>
 
         <body name="mocap0" mocap="true" pos="0 -0.11 0.1053">
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.1 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
@@ -36,8 +33,6 @@
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.1 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
         </body> -->
 
-        <!-- <include file="robots/sawyer/gripperchain_right.xml" /> -->
-        <!-- <include file="robots/sawyer/gripperchain_left.xml" /> -->
 <!--<body pos="0 0 1">-->
     <!--<freejoint/>-->
     <!--<composite type="box" count="10 10 10" spacing="0.04">-->

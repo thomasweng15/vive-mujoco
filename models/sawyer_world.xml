@@ -3,7 +3,7 @@
   <option cone="elliptic" impratio="20" />
   <size nconmax="5000" njmax="5000" />
 
-  <include file="robots/sawyer/assets.xml"/>
+  <include file="robots/sawyer/robot.xml"/>
 
   <asset>
     <mesh file="objects/milk.stl" name="milk_mesh" scale="0.9 0.9 0.9" />
@@ -19,7 +19,7 @@
   </asset>
 
   <equality>
-    <weld body1="mocap0" body2="right_hand" solref="0.01 1" solimp=".9 .9 0.01"/>
+    <weld body1="mocap0" body2="arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
   </equality>
 
   <worldbody>
@@ -64,8 +64,6 @@
       <geom friction="1 0.005 0.0001" pos="-0.2 0 0.05" rgba="1 0 0 1" size="0.01 0.25 0.05" type="box" />
       <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="-0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
     </body>
-
-    <include file="robots/sawyer/chain.xml" />
 
     <body name="Milk0" pos="0.6352409980929998 -0.29128142841891863 0.885" quat="0.47012485284903993 0 0 0.8825999222375156">
       <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" material="ceramic" mesh="milk_mesh" name="Milk0" pos="0 0 0" solimp="0.998 0.998 0.001" solref="0.001 1" type="mesh" />

@@ -5,17 +5,14 @@
         <flag warmstart="enable"/>
     </option>
 
-    <!-- <include file="robots/sawyer/gripperassets.xml"/>
-    <include file="robots/sawyer/gripperactuator_right.xml"/>
-    <include file="robots/sawyer/gripperactuator_left.xml"/> -->
-    <include file="robots/sawyer/alt_robot_gripper_shared.xml"/>
-    <include file="robots/sawyer/alt_robot_gripper_actuator_left.xml"/>
-    <include file="robots/sawyer/alt_robot_gripper_actuator_right.xml"/>
-    <include file="scene.xml"/>
+    <include file="robots/sawyer/floatinggripper_shared.xml"/>
+    <include file="robots/sawyer/floatinggripper_actuator_left.xml"/>
+    <include file="robots/sawyer/floatinggripper_actuator_right.xml"/>
+    <include file="scenes/scene.xml"/>
 
     <worldbody>
-        <include file="robots/sawyer/alt_robot_gripper_left.xml"/>
-        <include file="robots/sawyer/alt_robot_gripper_right.xml"/>
+        <include file="robots/sawyer/floatinggripper_left.xml"/>
+        <include file="robots/sawyer/floatinggripper_right.xml"/>
 
         <body name="mocap0" mocap="true" pos="0 -1.11 1.5" euler="0 0 0">
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
@@ -48,9 +45,6 @@
                 <geom rgba=".8 .2 .1 0.3" size=".01 .015" type="capsule" contype='2' conaffinity='2'/>
             </composite>
         </body>
-
-        <!-- <include file="robots/sawyer/gripperchain_right.xml" />
-        <include file="robots/sawyer/gripperchain_left.xml" /> -->
     </worldbody>
     
     <equality>
