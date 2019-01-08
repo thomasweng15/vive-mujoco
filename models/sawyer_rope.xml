@@ -44,9 +44,10 @@
             </composite>
         </body>
 
-        <include file="robots/sawyer/gripperchain.xml" />
+        <include file="robots/sawyer/gripperchain_right.xml" />
         <include file="robots/sawyer/gripperchain_left.xml" />
     </worldbody>
+    
     <equality>
         <weld body1="mocap0" body2="right_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
         <weld body1="mocap1" body2="left_l6" solref="0.01 1" solimp=".9 .9 0.01"/>

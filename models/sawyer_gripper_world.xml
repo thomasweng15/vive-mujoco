@@ -67,7 +67,7 @@
       <geom conaffinity="0" contype="0" group="1" material="dark-wood" pos="-0.2 0 0.05" size="0.01 0.25 0.05" type="box" />
     </body>
 
-    <include file="robots/sawyer/gripperchain.xml" />
+    <include file="robots/sawyer/gripperchain_right.xml" />
 
     <body name="Milk0" pos="0.6352409980929998 -0.29128142841891863 0.885" quat="0.47012485284903993 0 0 0.8825999222375156">
       <geom condim="4" density="100" friction="0.95 0.3 0.1" group="1" material="ceramic" mesh="milk_mesh" name="Milk0" pos="0 0 0" solimp="0.998 0.998 0.001" solref="0.001 1" type="mesh" />

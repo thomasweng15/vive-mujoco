@@ -13,6 +13,7 @@
     <include file="robots/sawyer/gripperassets.xml"/>
     <include file="robots/sawyer/gripperactuator_right.xml"/>
     <include file="robots/sawyer/gripperactuator_left.xml"/>
+    <!-- <include file="robots/sawyer/alt_robot.xml"/> -->
     <include file="scene.xml"/>
 
     <option timestep="0.002" solver="CG" tolerance="1e-6"/>
@@ -33,7 +34,7 @@
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
         </body>
 
-        <include file="robots/sawyer/gripperchain.xml" />
+        <include file="robots/sawyer/gripperchain_right.xml" />
         <include file="robots/sawyer/gripperchain_left.xml" />
 <!--<body pos="0 0 1">-->
     <!--<freejoint/>-->
@@ -44,20 +45,12 @@
 <!--</body>-->
         <body name="B3_5" pos="0 0 1">
             <freejoint/>
+            <!-- <composite type="cloth" count="20 20 1" spacing="0.05" flatinertia="0.01"> -->
             <composite type="cloth" count="9 9 1" spacing="0.05" flatinertia="0.01">
                 <joint kind="main" damping="0.001"/>
                 <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="2"/>
                 <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 1"/>
             </composite>
         </body> 
-        <!-- <body name="B3_5" pos="0 0 1">
-            <freejoint/>
-            <composite type="cloth" count="20 20 1" spacing="0.05" flatinertia="0.01">
-                <joint kind="main" damping="0.001"/>
-                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="2"/>
-                <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 1"/>
-            </composite>
-        </body> -->
-
     </worldbody>
 </mujoco>
