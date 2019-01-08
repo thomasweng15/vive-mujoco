@@ -986,8 +986,8 @@ int main(int argc, const char** argv)
 		}
 
         // (tweng) Control gripper if sawyer
-		int rGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_r_finger_joint");
-		int rGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_r_gripper_l_finger_joint");
+		int rGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_jr_joint");
+		int rGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "r_gripper_jl_joint");
 		if((rGripperRJoint!=-1)&&(rGripperLJoint!=-1)) 
 		{
 			const double scale = 1.0;
@@ -997,8 +997,8 @@ int main(int argc, const char** argv)
 				(m->actuator_ctrlrange[2 * rGripperLJoint + 1] - m->actuator_ctrlrange[2 * rGripperLJoint]);
 		}
 
-		int lGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_l_gripper_r_finger_joint");
-		int lGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "gripper_l_gripper_l_finger_joint");
+		int lGripperRJoint = mj_name2id(m, mjOBJ_ACTUATOR, "l_gripper_jr_joint");
+		int lGripperLJoint = mj_name2id(m, mjOBJ_ACTUATOR, "l_gripper_jl_joint");
 		if((lGripperRJoint!=-1)&&(lGripperLJoint!=-1)) 
 		{
 			const double scale = 1.0;

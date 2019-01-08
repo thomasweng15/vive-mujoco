@@ -5,18 +5,23 @@
         <flag warmstart="enable"/>
     </option>
 
-    <include file="robots/sawyer/gripperassets.xml"/>
+    <!-- <include file="robots/sawyer/gripperassets.xml"/>
     <include file="robots/sawyer/gripperactuator_right.xml"/>
-    <include file="robots/sawyer/gripperactuator_left.xml"/>
+    <include file="robots/sawyer/gripperactuator_left.xml"/> -->
+    <include file="robots/sawyer/alt_robot_gripper_shared.xml"/>
+    <include file="robots/sawyer/alt_robot_gripper_actuator_left.xml"/>
+    <include file="robots/sawyer/alt_robot_gripper_actuator_right.xml"/>
     <include file="scene.xml"/>
-    <!-- <include file="robots/sawyer.xml"/> -->
 
     <worldbody>
-        <body name="mocap0" mocap="true" pos="0 -1.11 0.5" euler="0 0 0">
+        <include file="robots/sawyer/alt_robot_gripper_left.xml"/>
+        <include file="robots/sawyer/alt_robot_gripper_right.xml"/>
+
+        <body name="mocap0" mocap="true" pos="0 -1.11 1.5" euler="0 0 0">
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
         </body>
 
-        <body name="mocap1" mocap="true" pos="-1 -1.11 0.5" euler="0 0 0">
+        <body name="mocap1" mocap="true" pos="-1 -1.11 1.5" euler="0 0 0">
             <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
         </body>
 
@@ -44,13 +49,13 @@
             </composite>
         </body>
 
-        <include file="robots/sawyer/gripperchain_right.xml" />
-        <include file="robots/sawyer/gripperchain_left.xml" />
+        <!-- <include file="robots/sawyer/gripperchain_right.xml" />
+        <include file="robots/sawyer/gripperchain_left.xml" /> -->
     </worldbody>
     
     <equality>
-        <weld body1="mocap0" body2="right_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
-        <weld body1="mocap1" body2="left_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+        <weld body1="mocap0" body2="r_arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+        <weld body1="mocap1" body2="l_arm_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
     </equality>
 
     <actuator>
