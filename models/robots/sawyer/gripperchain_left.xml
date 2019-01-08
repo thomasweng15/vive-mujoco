@@ -1,5 +1,5 @@
 <mujocoinclude>
-  <body name="left_l6" pos="-1 -0.11 0.5" euler="0 3.14 0">
+  <body name="left_l6" pos="-1 -1.11 1.5" euler="0 3.14 0">
     <inertial diaginertia="0.000360258 0.000311068 0.000214974" mass="0.3292" pos="-8.0726e-06 0.0085838 -0.0049566" quat="0.479044 0.515636 -0.513069 0.491322" />
     <freejoint/>
     <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 1" type="mesh" />

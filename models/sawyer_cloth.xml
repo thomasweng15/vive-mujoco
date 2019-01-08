@@ -1,0 +1,63 @@
+<mujoco model="Cloth">
+    <!--  Copyright © 2018, Roboti LLC
+
+          This file is licensed under the MuJoCo Resource License (the "License").
+          You may not use this file except in compliance with the License.
+          You may obtain a copy of the License at
+
+            https://www.roboti.us/resourcelicense.txt
+    -->
+
+    <compiler angle="radian" meshdir="meshes/" />
+
+    <include file="robots/sawyer/gripperassets.xml"/>
+    <include file="robots/sawyer/gripperactuator_right.xml"/>
+    <include file="robots/sawyer/gripperactuator_left.xml"/>
+    <include file="scene.xml"/>
+
+    <option timestep="0.002" solver="CG" tolerance="1e-6"/>
+
+    <size nconmax="300" njmax="1000" nstack="1000000"/>
+
+    <equality>
+        <weld body1="mocap0" body2="right_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+        <weld body1="mocap1" body2="left_l6" solref="0.01 1" solimp=".9 .9 0.01"/>
+    </equality>
+
+    <worldbody>
+        <body name="mocap0" mocap="true" pos="0 -1.11 1.5" euler="0 0 0">
+            <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+        </body>
+
+        <body name="mocap1" mocap="true" pos="-1 -1.11 1.5" euler="0 0 0">
+            <geom conaffinity="0" contype="0" group="1" mesh="l6" rgba="0.5 0.1 0.1 0.5" type="mesh" euler="0 3.14 0"/>
+        </body>
+
+        <include file="robots/sawyer/gripperchain.xml" />
+        <include file="robots/sawyer/gripperchain_left.xml" />
+<!--<body pos="0 0 1">-->
+    <!--<freejoint/>-->
+    <!--<composite type="box" count="10 10 10" spacing="0.04">-->
+        <!--&lt;!&ndash;<skin texcoord="true" material="matsponge" rgba=".7 .7 .7 1"/>&ndash;&gt;-->
+        <!--<geom type="capsule" size=".005 0.005" rgba=".8 .2 .1 1"/>-->
+    <!--</composite>-->
+<!--</body>-->
+        <body name="B3_5" pos="0 0 1">
+            <freejoint/>
+            <composite type="cloth" count="9 9 1" spacing="0.05" flatinertia="0.01">
+                <joint kind="main" damping="0.001"/>
+                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="2"/>
+                <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 1"/>
+            </composite>
+        </body> 
+        <!-- <body name="B3_5" pos="0 0 1">
+            <freejoint/>
+            <composite type="cloth" count="20 20 1" spacing="0.05" flatinertia="0.01">
+                <joint kind="main" damping="0.001"/>
+                <skin material="matcarpet" texcoord="true" inflate="0.005" subgrid="2"/>
+                <geom type="capsule" size="0.015 0.01" rgba=".8 .2 .1 1"/>
+            </composite>
+        </body> -->
+
+    </worldbody>
+</mujoco>
