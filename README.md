@@ -27,15 +27,14 @@
 ## Running the code
 
 Instructions for starting the Vive
-* Connect the battery pack with the USB cord from the wireless adapter on the Vive. Press the power button on the battery pack. Turn on the controllers.
+* Make sure the Vive is plugged in and turned on. Turn on the controllers.
 * Move the headset and controllers to the play space where the base stations can track them.
-* Run the Vive Wireless app and check that the Vive is detected in the app. 
 * Run the SteamVR app and check that the Vive and controllers are tracking with the base stations. 
-* The Vive is now ready. To turn it off, close the apps and unplug the power bank from the adapter.
+* The Vive is now ready. To turn it off, close the apps and turn the Vive off.
 
 Instructions for running the Vive + MuJoCo demo
 * The Vive and at least one controller need to be on and tracking.
 * Run the Anaconda Prompt as an administrator (right click and select run as admin)
-* Navigate to `C:\Users\lorax\.mujoco\mjpro150\bin`
-* Run `mjvive.exe`. Type in the MuJoCo model file when prompted: `..\model\humanoid.xml`
+* Navigate to `${HOME}\.mujoco\mjpro200\bin`
+* Run `mjvive.exe`. Type in a MuJoCo model file when prompted, for example: `..\model\humanoid.xml`
 * The view from the headset will appear in a window on the screen. You can now use the Vive to interact with the MuJoCo model.
